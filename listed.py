@@ -25,7 +25,7 @@ bot = commands.Bot(command_prefix='/', description=description, intents=intents)
 
 #adding to list
 @bot.command()
-async def add(ctx,arg):
+async def add(ctx,arg, case_insensitive = True):
     # extracting idea name and list name from message
     splitString = arg.split("$")
     frontmsg= splitString[1]
@@ -43,13 +43,25 @@ async def add(ctx,arg):
           ctx.send(f"{ideaname} added to {listname.tlt}!")
        
 
-"""
-#removing from list (by number) /remove
+
+#removing from list (by number) /remove $movielist 3
+@bot.command()
     
+    async def remove(ctx,arg,int, case_insensitive=True):
+       removal_int= int
+     #  if "-" in (message.content.lower()).replace(" ", ""):
+         
 #archive from list /archive
+
+#same as removal except pop is a move if archive x doesnt exist, create it
 #renaming list /rename
 
-"""
+@bot.command()
+async def rename(ctx,arg):
+       #remove $ from movielist
+       #search for it in database
+       #rename key
+        
 #view lists
 @bot.command()
 async def view(ctx, arg)
@@ -59,6 +71,7 @@ msg= str(arg)
               for number, listname in enumerate(listname):
               await #print list header
                      print(number, listname)
+                     
 #create list
 @bot.command()
 async def create(ctx,*,arg):
